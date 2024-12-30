@@ -33,9 +33,10 @@ def part3():
         cols = [cols[(i-thickness)%ACC] for i in range(ACC)]
         width += 2
         total += width*thickness
-        rem = sum(((i*2*width) % ACC)*val for i, val in enumerate(cols))
+        rem = sum(((i*inp*width) % ACC)*val for i, val in enumerate(cols))
         cols[thickness % len(cols)] += 2
         if total - rem > MAX:
             return total - rem - MAX
 
-for i in range(1, 4): eval(f"print(f'part {i}: {{part{i}()}}')")
+for i in range(1, 4):
+    eval(f"print(f'part {i}: {{part{i}()}}')")
