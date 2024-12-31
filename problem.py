@@ -37,10 +37,16 @@ def get_input(part):
     if 'clip' in sys.argv or \
             f'{day}-{part}.txt' not in os.listdir(f'../_inputs/{year}'):
         return download_input(year, day, part)
-    return open(f'../_inputs/{year}/{day}-{part}.txt', 'r').read()
+    s = ""
+    with open(f'../_inputs/{year}/{day}-{part}.txt', 'r') as f:
+        s = f.read()
+    return s
 
 def get_input_(_part):
-    return open(f'./input', 'r').read()
+    s = ""
+    with open("./input", "r") as f:
+        s = f.read()
+    return s
     
 def clip(arg):
     s = str(arg)
